@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contato;
 
 class ContatoController extends Controller
 {
@@ -13,6 +14,12 @@ class ContatoController extends Controller
             (object)["nome"=>"Pedro", "tel"=>"4789789789"]
             
         ];
+
+        $contato = new Contato();
+
+        $con = $contato->lista();
+        dd($con->nome);
+
         return view('contato.index', compact('contatos'));
     }
 
